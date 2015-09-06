@@ -346,7 +346,7 @@ def main():
                                 a.mrnm = readDict[dictTag][3]
                                 a.mpos=readDict[dictTag][4]
                                 a.isize = readDict[dictTag][5]
-                                a.qual = qualScore  
+                                a.qual = qualScore[0:len(a.seq)]  
                                 outNC1.write(a)
                                 LCC += 1
 
@@ -366,7 +366,7 @@ def main():
                         a.mrnm = readDict[dictTag][3]
                         a.mpos=readDict[dictTag][4]
                         a.isize = readDict[dictTag][5]
-                        a.qual = qualScore
+                        a.qual = qualScore[0:len(a.seq)]
 
                         # Write SSCSs to output BAM file in read pairs.
                         altTag=dictTag.replace(("1" if "1" in dictTag else "2"),("2" if "1" in dictTag else "1"))
